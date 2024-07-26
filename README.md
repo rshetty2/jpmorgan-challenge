@@ -4,8 +4,8 @@ Code for JP Morgan Code Test
 ## How to Run
   *  Open the project in IDE
   *  Navigate to project folder src/test/java
-  *  MaximumOccurrenceWordTest contains unit tests for First code challenge
-  *  TODO
+  *  MaximumOccurrenceWordTest contains unit tests for Maximum letter occurence code challenge.
+  *  LongestBinaryStringTest contains unit tests for the longest Binary string code challenge.
 
 ## Dependencies
   * Java 11

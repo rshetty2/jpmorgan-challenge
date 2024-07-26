@@ -5,6 +5,10 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+
+/**
+ * Data store class to hold key metrics of each word
+ */
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor

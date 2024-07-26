@@ -17,7 +17,7 @@ public class MaximumOccurrenceWord {
         for (String word : words) {
             int letterCount = StringUtils.countMatches(word, letter);
             if (letterCount > 0) {
-                sortedSet.add(new WordRecord(word, sequence--, word.length(), letterCount));
+                sortedSet.add(WordRecord.builder().text(word).sequence(sequence--).length(word.length()).letterCount(letterCount).build());
             }
         }
 

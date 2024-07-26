@@ -18,6 +18,12 @@ Code for JP Morgan Code Test
   * The two code challenges are segregated in different top level packages under main/java folder.
   * Unit tests for two challenges are also maintained in test/java folder in different classes.
 
+## Assumptions
+1. Maximum Occurrence code challenge
+
+2. Decimal to Binary code challenge
+   * Only 0 or Positive decimal input is allowed. If a negative number is supplied, program will return a negative position indicating invalid number.
+
 ## Notes
 1. Maximum Occurrence code
    * A wrapper class WordRecord is created only when a word has the search letter in it. This would prevent n number of Wapper objects being created. Worst case space complexity would

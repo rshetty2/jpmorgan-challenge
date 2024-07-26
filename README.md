@@ -26,4 +26,6 @@ Code for JP Morgan Code Test
      if new conditions need to be added.
      
 2. Decimal to Binary code
+   * A sliding window pattern is used to scan through the binary string. This would ensure that no recursive loops are required. One index currentStartIndex is used to anchor the starting of the search range, and the other index runningIndex runs through the search range to perform the count. At no point, the program revisits a paticular index/item in the string. Space complexity is O(logn) due to the usage of a StringBuilder object which would do the internal optimization to concatenate individual remainders to the underlying String object. Time complexity would be O(n) as we need to scan through each element only once.
+   * The convertDecimalToBinary used in the LongestBinaryString class does the binary conversion. We could also use the inbuild toBinaryString method of Integer class. 
 

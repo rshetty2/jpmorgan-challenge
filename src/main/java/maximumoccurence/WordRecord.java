@@ -1,9 +1,6 @@
 package maximumoccurence;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 
 /**
@@ -13,6 +10,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @AllArgsConstructor
 @Getter
+@Builder
 
 public class WordRecord {
     String text;

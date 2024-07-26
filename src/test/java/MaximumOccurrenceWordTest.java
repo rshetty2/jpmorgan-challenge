@@ -3,6 +3,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @DisplayName("Assertions to check maximum occurrence of characters")
 public class MaximumOccurrenceWordTest {
 
@@ -22,20 +27,45 @@ public class MaximumOccurrenceWordTest {
     }
 
     @Test
-    public void givenAString_whenTwoWordHasMaxOccurrence_thenReturnTheLongerWord() {
+    public void givenAString_whenTwoWordHaveMaxOccurrence_thenReturnTheLongerWord() {
         String inputString = "This is a very long sentence and I want to educate everyone in this whole crazy crrrazy crrazy world";
         char searchLetter = 'z';
         String matchWord = maximumOccurrenceWord.findWordWithMaximumLetterOccurrence(inputString,searchLetter).get();
-        System.out.println(matchWord);
         assert(matchWord).equals("crrrazy");
     }
 
     @Test
-    public void givenAString_whenTwoWordHasMaxOccurrenceAndSameLength_thenReturnTheFirstOccurrence() {
+    public void givenAString_whenDifferentLetterCase_thenReturnMatchingCase() {
+        String inputString = "This is a very long sentence and i want to educate everyone in this whole crazy world that I exist";
+        char searchLetter = 'I';
+        String matchWord = maximumOccurrenceWord.findWordWithMaximumLetterOccurrence(inputString,searchLetter).get();
+        assert(matchWord).equals("I");
+    }
+
+    @Test
+    public void givenAString_whenTwoWordHaveMaxOccurrenceAndSameLength_thenReturnTheFirstOccurrence() {
         String inputString = "This is a very long sentence and I want to educate everyone in this whole crazy world";
         char searchLetter = 'e';
         String matchWord = maximumOccurrenceWord.findWordWithMaximumLetterOccurrence(inputString,searchLetter).get();
-        System.out.println(matchWord);
         assert(matchWord).equals("sentence");
     }
+
+    @Test
+    public void givenAString_whenNoWordHasContainsSearchLetter_thenReturnEmpty() {
+        String inputString = "This is a very long sentence and I want to educate everyone in this whole crazy world";
+        char searchLetter = 'x';
+        Optional<String> matchedWord = maximumOccurrenceWord.findWordWithMaximumLetterOccurrence(inputString,searchLetter);
+        assertTrue(matchedWord.isEmpty());
+    }
+
+    @Test
+    public void givenAString_whenStringIsBlank_thenReturnEmpty() {
+        String inputString = "     ";
+        char searchLetter = 'x';
+        Optional<String> matchedWord = maximumOccurrenceWord.findWordWithMaximumLetterOccurrence(inputString,searchLetter);
+        assertTrue(matchedWord.isEmpty());
+    }
+
+
+
 }

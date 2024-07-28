@@ -1,11 +1,18 @@
 # jpmorgan-challenge
 Code for JP Morgan Code Test
 
-## How to Run
+## How to run tests
   *  Open the project in IDE
   *  Navigate to project folder src/test/java and run the tests. Reference https://www.jetbrains.com/help/idea/work-with-tests-in-maven.html
   *  MaximumOccurrenceWordTest file contains unit tests for Maximum letter occurence code challenge.
   *  LongestBinaryStringTest file contains unit tests for the longest Binary string code challenge.
+  *  Indivudal Test files can be run on shell using below
+     
+     ```shell
+     mvn test -Dtest="MaximumOccurrenceWordTest"
+     and
+     mvn test -Dtest="LongestBinaryStringTest"
+     ```
 
 ## Dependencies
   * Java 11

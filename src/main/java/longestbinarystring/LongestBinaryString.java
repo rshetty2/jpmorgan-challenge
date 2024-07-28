@@ -1,18 +1,20 @@
 package longestbinarystring;
 
 public class LongestBinaryString {
-    public int findStartIndexOfLongestZeroOrOne(Integer input, char binaryDigit) {
-        int maxIndex = -1;
+
+    public int findStartIndexOfLongestZeroOrOne(int input, char binaryDigit) {
+        int maxIndex = -1; //default index if no match found.
+        int currentStartIndex = 0; //This would be the start anchor in scan. First pointer.
+        int runningIndex = 0; //Second pointer to check end of consecutive binary digits
+
+        int maxCount = 0; //Count of current max
+
 
         if(!isValidateInput(input,binaryDigit))
             return maxIndex;
 
-        String binaryString = convertDecimalToBinary(input);
+        String binaryString = DecimalToBinary.convertDecimalToBinary(input);
         int binaryStringLength = binaryString.length();
-        int runningIndex = 0;
-        int maxCount = 0; //count of current max
-        int currentStartIndex = 0; //This would be the start anchor in scan.
-
 
         while (currentStartIndex < binaryStringLength) {
             currentStartIndex = runningIndex;
@@ -24,8 +26,7 @@ public class LongestBinaryString {
             int currentCount = 0;
             //This construct counts the matching digits.
             while ((runningIndex < binaryStringLength) && (binaryString.charAt(runningIndex) == binaryDigit)) {
-                ++currentCount;
-                ++runningIndex;
+                ++currentCount; ++runningIndex;
             }
 
             if (currentCount > maxCount) {
@@ -48,17 +49,6 @@ public class LongestBinaryString {
         while ((currentStartIndex < binaryStringLength) && (binaryString.charAt(currentStartIndex) != binaryDigit))
             ++currentStartIndex;
         return currentStartIndex;
-    }
-
-    private String convertDecimalToBinary(Integer input) {
-        if (input == 0)  return "0";
-
-        StringBuilder binaryBuffer = new StringBuilder();
-        while(input != 0) {
-            binaryBuffer.append(input % 2);
-            input = input / 2;
-        }
-        return binaryBuffer.reverse().toString();
     }
 
 }

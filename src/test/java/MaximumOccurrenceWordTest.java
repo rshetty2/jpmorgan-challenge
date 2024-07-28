@@ -50,6 +50,14 @@ public class MaximumOccurrenceWordTest {
     }
 
     @Test
+    public void givenAStringWithWhitespaceEscapeChars_whenSearched_thenReturnSuccessByIgnoringWhiteSpaces() {
+        String inputString = "This is a very long \t\tsentence and I want to educate \t\teveryone\t\t in this whole crazy world";
+        char searchLetter = 'e';
+        String matchedWord = maximumOccurrenceWord.findWordWithMaximumLetterOccurrence(inputString,searchLetter).get();
+        assert(matchedWord).equals("sentence");
+    }
+
+    @Test
     public void givenAString_whenNoWordHasContainsSearchLetter_thenReturnEmpty() {
         String inputString = "This is a very long sentence and I want to educate everyone in this whole crazy world";
         char searchLetter = 'x';
@@ -64,7 +72,4 @@ public class MaximumOccurrenceWordTest {
         Optional<String> matchedWord = maximumOccurrenceWord.findWordWithMaximumLetterOccurrence(inputString,searchLetter);
         assertTrue(matchedWord.isEmpty());
     }
-
-
-
 }

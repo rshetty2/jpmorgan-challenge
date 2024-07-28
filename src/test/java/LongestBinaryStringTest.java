@@ -1,12 +1,14 @@
 
+import longestbinarystring.DecimalToBinary;
 import longestbinarystring.LongestBinaryString;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@DisplayName("Assertions to check start of longest string with 1s in a binary number")
+@DisplayName("Assertions to check start of longest string with 1s in a binary number. Also test Decimal to Binary scenarios")
 public class LongestBinaryStringTest {
 
     LongestBinaryString longestBinaryString;
@@ -68,4 +70,25 @@ public class LongestBinaryStringTest {
         assertThat(Integer.valueOf(startIndex)).isLessThan(0);
     }
 
+
+    @Test
+    public void givenPositiveNumber3_whenConvertedToBinary_thenSuccessReturn() {
+        int inputDecimalNumber = 3;
+        String binaryString = DecimalToBinary.convertDecimalToBinary(inputDecimalNumber);
+        assert(binaryString).equals("11");
+    }
+
+    @Test
+    public void givenPositiveNumber2147483647_whenConvertedToBinary_thenSuccessReturn() {
+        int inputDecimalNumber = Integer.MAX_VALUE;
+        String binaryString = DecimalToBinary.convertDecimalToBinary(inputDecimalNumber);
+        assert(binaryString).equals("1111111111111111111111111111111");
+    }
+
+    @Test
+    public void givenNegativeNumber_whenConvertedToBinary_thenFailReturnException() {
+        int inputDecimalNumber = -2147483647;
+        Exception exp = assertThrows(IllegalArgumentException.class,() -> DecimalToBinary.convertDecimalToBinary(inputDecimalNumber));
+        assert(exp.getMessage().equals("Input cannot be a negative number"));
+    }
 }

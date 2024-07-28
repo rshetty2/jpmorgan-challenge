@@ -1,4 +1,6 @@
-# Introduction jpmorgan-challenge 
+# jpmorgan-challenge
+
+## Introduction 
 Two challenges are implemented using Java 11. The project requires Maven to build and run tests.
 
 

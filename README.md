@@ -20,9 +20,11 @@ Code for JP Morgan Code Test
 
 ## Assumptions
 1. Maximum Occurrence code challenge
+   * Whitespace characters are treated as delimiter to split the sentence. As such there is no suppport for whitespace character search.
+   
+3. Decimal to Binary code challenge
+   * Only 0, Positive whole number (no fractional) input is allowed. If a negative number is supplied, program will return a negative position indicating invalid number.
 
-2. Decimal to Binary code challenge
-   * Only 0 or Positive decimal input is allowed. If a negative number is supplied, program will return a negative position indicating invalid number.
 
 ## Notes
 1. Maximum Occurrence code
